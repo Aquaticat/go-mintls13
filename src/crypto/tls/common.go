@@ -1155,9 +1155,10 @@ func (c *Config) supportedCipherSuites() []uint16 {
 
 var supportedVersions = []uint16{
 	VersionTLS13,
-	VersionTLS12,
-	VersionTLS11,
-	VersionTLS10,
+	// Aquaticat: Disable emitting tls 1.2 and below as supported.
+	// VersionTLS12,
+	// VersionTLS11,
+	// VersionTLS10,
 }
 
 // roleClient and roleServer are meant to call supportedVersions and parents
