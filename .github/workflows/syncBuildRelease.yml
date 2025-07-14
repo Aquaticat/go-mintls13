@@ -67,15 +67,11 @@ jobs:
         uses: actions/setup-go@v5
 
       - name: Build Go
+        working-directory: src
         env:
           GOOS: ${{ matrix.goos }}
           GOARCH: ${{ matrix.goarch }}
         run: |
-          export CGO_ENABLED=1
-          export CC=clang
-          export CXX=clang++
-          
-          cd src
           ./make.bash
           
           # Copy the go binary to the workspace root with platform suffix
